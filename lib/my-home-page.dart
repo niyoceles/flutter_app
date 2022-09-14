@@ -735,7 +735,7 @@ class _MyHomePageState extends State<MyHomePage> {
                           left: 0,
                           right: 0,
                           child: SizedBox(
-                              height: 70,
+                              height: 90,
                               width: MediaQuery.of(context).size.width,
                               child: Container(
                                 color: Colors.white,

@@ -20,6 +20,14 @@ class CustomAppBar extends StatefulWidget implements PreferredSizeWidget {
 }
 
 class _CustomAppBarState extends State<CustomAppBar> {
+  bool isLoggedin = true;
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     late bool showUnderline = false;
@@ -80,51 +88,61 @@ class _CustomAppBarState extends State<CustomAppBar> {
                               Container(),
                               Row(
                                 children: [
-                                  Text(
-                                    "Jetzt Klicken",
-                                    style: TextStyle(
-                                      color: colorFromHex("#4A5568"),
-                                      fontSize: 14,
-                                    ),
-                                  ),
-                                  const SizedBox(
-                                    width: 20,
-                                  ),
-                                  Container(
-                                    padding: const EdgeInsets.only(
-                                      top: 4,
-                                      bottom: 4,
-                                      right: 16,
-                                      left: 16,
-                                    ),
-                                    decoration: BoxDecoration(
-                                        border: Border.all(
-                                          width: 1,
-                                          color: Colors.grey.shade200,
-                                        ),
-                                        color: Colors.white,
-                                        borderRadius: const BorderRadius.all(
-                                            Radius.circular(8))),
-                                    child: Padding(
-                                      padding: const EdgeInsets.only(
-                                          right: 20, left: 20, bottom: 2),
-                                      child: Text(
-                                        "Kostenlos Registrieren",
-                                        style: TextStyle(
-                                            color: colorFromHex("#319795")),
+                                  if (isLoggedin)
+                                    Text(
+                                      "Jetzt Klicken",
+                                      style: TextStyle(
+                                        color: colorFromHex("#4A5568"),
+                                        fontSize: 14,
                                       ),
                                     ),
-                                  ),
-                                  const SizedBox(width: 20),
-                                  Text(
-                                    "Login",
-                                    style: TextStyle(
-                                      color: colorFromHex("#319795"),
-                                      fontWeight: FontWeight.w700,
-                                      fontSize: 14,
-                                      decoration: showUnderline
-                                          ? TextDecoration.underline
-                                          : TextDecoration.none,
+                                  if (isLoggedin)
+                                    const SizedBox(
+                                      width: 20,
+                                    ),
+                                  if (isLoggedin)
+                                    Container(
+                                      padding: const EdgeInsets.only(
+                                        top: 4,
+                                        bottom: 4,
+                                        right: 16,
+                                        left: 16,
+                                      ),
+                                      decoration: BoxDecoration(
+                                          border: Border.all(
+                                            width: 1,
+                                            color: Colors.grey.shade200,
+                                          ),
+                                          color: Colors.white,
+                                          borderRadius: const BorderRadius.all(
+                                              Radius.circular(8))),
+                                      child: Padding(
+                                        padding: const EdgeInsets.only(
+                                            right: 20, left: 20, bottom: 2),
+                                        child: Text(
+                                          "Kostenlos Registrieren",
+                                          style: TextStyle(
+                                              color: colorFromHex("#319795")),
+                                        ),
+                                      ),
+                                    ),
+                                  if (isLoggedin) const SizedBox(width: 20),
+                                  InkWell(
+                                    onTap: () {
+                                      setState(() {
+                                        isLoggedin = !isLoggedin;
+                                      });
+                                    },
+                                    child: Text(
+                                      isLoggedin ? "Logout" : 'Login',
+                                      style: TextStyle(
+                                        color: colorFromHex("#319795"),
+                                        fontWeight: FontWeight.w700,
+                                        fontSize: 14,
+                                        decoration: showUnderline
+                                            ? TextDecoration.underline
+                                            : TextDecoration.none,
+                                      ),
                                     ),
                                   ),
                                 ],
