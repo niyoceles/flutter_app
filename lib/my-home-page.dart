@@ -138,8 +138,12 @@ class _MyHomePageState extends State<MyHomePage> {
                           children: [
                             Container(
                                 margin: const EdgeInsets.only(top: 100),
-                                child: const LargeText(
-                                  text: '1.',
+                                child: CircleAvatar(
+                                  radius: 100,
+                                  backgroundColor: colorFromHex("#F7FAFC"),
+                                  child: const LargeText(
+                                    text: '1.',
+                                  ),
                                 )),
                             Column(
                               children: [
@@ -216,7 +220,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 children: [
                   if (isMobile)
                     const SizedBox(
-                      height: 80,
+                      height: 15,
                     ),
                   if (isMobile) StartMessage(titleStyle: titleStyle),
                   if (isMobile)
@@ -245,7 +249,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                 AppButton(
                                   text: "Kostenlos Registrieren",
                                   width:
-                                      MediaQuery.of(context).size.width * 0.3,
+                                      MediaQuery.of(context).size.width * 0.15,
                                 )
                               ],
                             ),
@@ -314,7 +318,8 @@ class _MyHomePageState extends State<MyHomePage> {
                           clipper: CustomClipperPathCenter(),
                           child: Container(
                             margin: const EdgeInsets.only(top: 0),
-                            height: 780,
+                            padding: const EdgeInsets.only(top: 0, bottom: 0),
+                            height: 800,
                             color: Colors.white,
                             child: Container(
                               margin: const EdgeInsets.only(top: 100, left: 10),
@@ -360,7 +365,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         Positioned(
                           left: 340,
                           right: 660,
-                          top: 480,
+                          top: 500,
                           child: SizedBox(
                             child: Image.asset("assets/images/Gruppe-1821.png"),
                           ),
@@ -471,7 +476,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                   if (selectedIndex == 0)
                                     Container(
                                       margin: const EdgeInsets.only(
-                                          top: 75, right: 20),
+                                          top: 80, right: 20),
                                       child: Column(
                                         crossAxisAlignment:
                                             CrossAxisAlignment.start,
@@ -508,106 +513,123 @@ class _MyHomePageState extends State<MyHomePage> {
                       ),
                     ),
                   if (isMobile)
-                    ClipPath(
-                      clipper: CustomClipperPathBottom(),
-                      child: Container(
-                        margin: const EdgeInsets.only(top: 0, bottom: 100),
-                        height: MediaQuery.of(context).size.height * 0.7,
-                        color: Colors.white,
-                        child: Column(
-                          children: [
-                            Expanded(
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                children: [
-                                  Container(
-                                    margin: const EdgeInsets.only(top: 60),
-                                    padding: const EdgeInsets.only(left: 80),
-                                    child: const LargeText(
-                                      text: '3.',
-                                    ),
+                    Stack(
+                      children: [
+                        ClipPath(
+                          clipper: CustomClipperPathBottom(),
+                          child: Container(
+                            margin: const EdgeInsets.only(top: 0),
+                            height: MediaQuery.of(context).size.height,
+                            color: Colors.white,
+                            child: Column(
+                              children: [
+                                Expanded(
+                                  child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    children: [
+                                      Container(
+                                        margin: const EdgeInsets.only(top: 80),
+                                        padding:
+                                            const EdgeInsets.only(left: 80),
+                                        child: const LargeText(
+                                          text: '3.',
+                                        ),
+                                      ),
+                                      Container(
+                                        alignment: Alignment.centerLeft,
+                                        margin: const EdgeInsets.only(
+                                            top: 140, left: 20),
+                                        child: Column(
+                                          children: [
+                                            if (selectedIndex == 0)
+                                              Column(
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.start,
+                                                children: const [
+                                                  ContentText(
+                                                    text: "Mit nur einem Klick",
+                                                  ),
+                                                  ContentText(
+                                                    text: "bewerben",
+                                                  )
+                                                ],
+                                              ),
+                                            if (selectedIndex == 1)
+                                              Column(
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.start,
+                                                children: const [
+                                                  ContentText(
+                                                    text: "Wähle deinen neuen",
+                                                  ),
+                                                  ContentText(
+                                                    text: "Mitarbeiter aus",
+                                                  )
+                                                ],
+                                              ),
+                                            if (selectedIndex == 2)
+                                              Column(
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.start,
+                                                children: const [
+                                                  ContentText(
+                                                    text: "Vermittlung nach",
+                                                  ),
+                                                  ContentText(
+                                                    text: "Provision oder",
+                                                  ),
+                                                  ContentText(
+                                                    text: "Stundenlohn",
+                                                  )
+                                                ],
+                                              ),
+                                          ],
+                                        ),
+                                      ),
+                                    ],
                                   ),
+                                ),
+                                if (selectedIndex == 0)
                                   Container(
-                                    alignment: Alignment.centerLeft,
-                                    margin: const EdgeInsets.only(
-                                        top: 120, left: 20),
-                                    child: Column(
-                                      children: [
-                                        if (selectedIndex == 0)
-                                          Column(
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.start,
-                                            children: const [
-                                              ContentText(
-                                                text: "Mit nur einem Klick",
-                                              ),
-                                              ContentText(
-                                                text: "bewerben",
-                                              )
-                                            ],
-                                          ),
-                                        if (selectedIndex == 1)
-                                          Column(
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.start,
-                                            children: const [
-                                              ContentText(
-                                                text: "Wähle deinen neuen",
-                                              ),
-                                              ContentText(
-                                                text: "Mitarbeiter aus",
-                                              )
-                                            ],
-                                          ),
-                                        if (selectedIndex == 2)
-                                          Column(
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.start,
-                                            children: const [
-                                              ContentText(
-                                                text: "Vermittlung nach",
-                                              ),
-                                              ContentText(
-                                                text: "Provision oder",
-                                              ),
-                                              ContentText(
-                                                text: "Stundenlohn",
-                                              )
-                                            ],
-                                          ),
-                                      ],
-                                    ),
+                                    margin: const EdgeInsets.only(bottom: 250),
+                                    padding: const EdgeInsets.only(
+                                        right: 50, left: 70),
+                                    child: Image.asset(
+                                        "assets/images/undraw_personal_file_222m.png"),
                                   ),
-                                ],
-                              ),
+                                if (selectedIndex == 1)
+                                  Container(
+                                    margin: const EdgeInsets.only(bottom: 250),
+                                    padding: const EdgeInsets.only(
+                                        right: 50, left: 70),
+                                    child: Image.asset(
+                                        "assets/images/undraw_swipe_profiles1_i6mr.png"),
+                                  ),
+                                if (selectedIndex == 2)
+                                  Container(
+                                    margin: const EdgeInsets.only(bottom: 250),
+                                    padding: const EdgeInsets.only(
+                                        right: 50, left: 70),
+                                    child: Image.asset(
+                                        "assets/images/undraw_business_deal_cpi9.png"),
+                                  ),
+                              ],
                             ),
-                            if (selectedIndex == 0)
-                              Container(
-                                margin: const EdgeInsets.only(bottom: 180),
-                                padding:
-                                    const EdgeInsets.only(right: 50, left: 70),
-                                child: Image.asset(
-                                    "assets/images/undraw_personal_file_222m.png"),
-                              ),
-                            if (selectedIndex == 1)
-                              Container(
-                                margin: const EdgeInsets.only(bottom: 180),
-                                padding:
-                                    const EdgeInsets.only(right: 50, left: 70),
-                                child: Image.asset(
-                                    "assets/images/undraw_swipe_profiles1_i6mr.png"),
-                              ),
-                            if (selectedIndex == 2)
-                              Container(
-                                margin: const EdgeInsets.only(bottom: 180),
-                                padding:
-                                    const EdgeInsets.only(right: 50, left: 70),
-                                child: Image.asset(
-                                    "assets/images/undraw_business_deal_cpi9.png"),
-                              ),
-                          ],
+                          ),
                         ),
-                      ),
+                        Positioned(
+                          bottom: 0,
+                          left: 0,
+                          right: 0,
+                          child: SizedBox(
+                              height: 120,
+                              width: MediaQuery.of(context).size.width,
+                              child: Container(
+                                color: Colors.white,
+                                child: Container(),
+                              )),
+                        ),
+                      ],
                     ),
                   if (isDesktop)
                     Stack(
@@ -625,8 +647,8 @@ class _MyHomePageState extends State<MyHomePage> {
                                     BorderSide(width: 10, color: Colors.white),
                               ),
                             ),
-                            padding:
-                                const EdgeInsets.only(right: 320, left: 320),
+                            padding: const EdgeInsets.only(
+                                right: 320, top: 80, left: 320),
                             child: Column(
                               children: [
                                 Expanded(
@@ -638,8 +660,18 @@ class _MyHomePageState extends State<MyHomePage> {
                                         mainAxisAlignment:
                                             MainAxisAlignment.start,
                                         children: [
-                                          const LargeText(
-                                            text: '3.',
+                                          CircleAvatar(
+                                            radius: 100,
+                                            backgroundColor:
+                                                colorFromHex("#F7FAFC"),
+                                            child: Container(
+                                              alignment: Alignment.topCenter,
+                                              padding: const EdgeInsets.only(
+                                                  bottom: 20, top: 0),
+                                              child: const LargeText(
+                                                text: '3.',
+                                              ),
+                                            ),
                                           ),
                                           Container(
                                             margin: const EdgeInsets.only(
